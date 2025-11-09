@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transform Your Trading Journey</title>
+  <meta name="description" content="Expert Stock Market Guidance, Courses, Live Tips, Mentorship & Advisory" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#1f2326;
+      --panel:#26292c;
+      --muted:#bfc6d0;
+      --accent:#b89cff;       /* primary purple */
+      --accent-dark:#9877e6;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --max-width:1200px;
+      --card-padding:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      background: linear-gradient(180deg,#d3c1ff33 0%, transparent 6%), var(--bg);
+      color:#eef2f6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Header / Nav */
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background: rgba(20,22,24,0.6);
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .nav{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent) 0%, var(--accent-dark) 100%);
+      display:grid;place-items:center;color:#1b1236;font-weight:800;font-size:18px;
+      box-shadow: 0 8px 30px rgba(120,84,255,0.12);
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:14px;
+      font-weight:600;
+    }
+    .nav-right{display:flex; gap:12px; align-items:center}
+    .cta-small{
+      padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
+      color:var(--muted); background:transparent; cursor:pointer;
+    }
+
+    /* Container */
+    .container{ max-width:var(--max-width); margin:0 auto; padding:28px 20px; }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:26px;
+      align-items:center;
+      padding:48px 20px;
+      margin-top:6px;
+    }
+    @media (max-width:980px){ .hero{ grid-template-columns:1fr; text-align:center } .hero .hero-illustr{order:-1} .nav a{display:none} }
+    .hero-left h1{
+      font-size: clamp(30px, 4.6vw, 54px);
+      margin:0 0 12px 0;
+      letter-spacing:-0.6px;
+      line-height:1.02;
+    }
+    .hero-left p{ color:var(--muted); max-width:60ch; margin:0 0 18px 0; font-size:16px }
+    .btn-row{display:flex; gap:12px; justify-content:flex-start; flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:0;cursor:pointer;
+      font-weight:700;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent), var(--accent-dark));
+      color:#160f2b; box-shadow:0 10px 30px rgba(120,84,255,0.12);
+    }
+    .btn-outline{
+      background:transparent;border:2px solid rgba(255,255,255,0.06); color:var(--muted);
+    }
+    .hero-illustr img{ width:100%; height:auto; border-radius:12px; display:block; box-shadow: 0 20px 50px rgba(0,0,0,0.6) }
+
+    /* Stats */
+    .stats{
+      display:flex; gap:12px; margin-top:18px; align-items:center;
+      flex-wrap:wrap;
+    }
+    .stat{
+      background:var(--panel); padding:10px 14px; border-radius:12px; min-width:120px; text-align:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .stat small{ display:block; color:var(--muted); font-size:12px }
+    .stat strong{ display:block; font-size:18px; margin-top:4px }
+
+    /* section headings */
+    .section{
+      margin-top:40px;
+      padding:28px 0;
+    }
+    .section .heading{
+      font-size:32px; margin:0 0 18px 0;
+    }
+
+    /* Advisory cards */
+    .grid-3{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+    }
+    @media (max-width:980px){ .grid-3{ grid-template-columns:1fr } }
+    .advisory-card{
+      background:var(--panel); border-radius:14px; padding:var(--card-padding); min-height:140px;
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex; gap:14px; align-items:flex-start;
+    }
+    .advisory-card .icon{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#c9b1ff,#b89cff); display:grid;place-items:center;color:#1b1236;font-weight:800;
+    }
+    .advisory-card h4{ margin:0 0 6px 0 }
+    .advisory-card p{ margin:0; color:var(--muted) }
+
+    /* Mentors */
+    .mentors{ display:flex; gap:16px; flex-wrap:wrap; margin-top:12px; }
+    .mentor{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px; padding:14px; min-width:200px; display:flex; gap:12px; align-items:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .avatar{ width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,#f6d365,#b89cff); display:grid;place-items:center; color:#1b1236; font-weight:700; font-size:18px; }
+    .mentor small{ color:var(--muted); display:block; margin-top:6px }
+
+    /* Testimonials carousel */
+    .carousel{
+      position:relative; overflow:hidden; border-radius:12px; background:var(--panel); padding:18px; border:1px solid rgba(255,255,255,0.03);
+    }
+    .carousel-track{ display:flex; gap:12px; transition:transform .45s cubic-bezier(.2,.8,.2,1) }
+    .testi{ min-width:320px; max-width:100%; background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; color:var(--muted) }
+    .testi p{ margin:0 0 8px 0 }
+    .carousel-controls{ margin-top:12px; display:flex; gap:10px; align-items:center; justify-content:flex-end }
+
+    /* Pricing */
+    .pricing-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px }
+    @media (max-width:980px){ .pricing-grid{ grid-template-columns:1fr } }
+    .plan{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:20px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .badge{ display:inline-block; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.03); color:var(--muted); font-weight:700; }
+
+    /* Video + content split */
+    .split{
+      display:grid; grid-template-columns:1fr 420px; gap:20px; align-items:start;
+    }
+    @media (max-width:980px){ .split{ grid-template-columns:1fr } }
+
+    /* Contact / form */
+    .form{
+      background:var(--panel); padding:22px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+      max-width:760px;
+    }
+    .form label{ display:block; font-weight:600; margin-bottom:6px }
+    .form input, .form textarea, .form select{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+      background:transparent; color:var(--muted); margin-bottom:12px; outline:none;
+    }
+    .form .row{ display:flex; gap:12px }
+    .form .row .col{ flex:1 }
+
+    /* Footer */
+    footer{
+      margin-top:44px; padding:30px 20px; background:#121315; color:var(--muted);
+    }
+    .socials{ display:flex; gap:10px; align-items:center }
+
+    /* small touches */
+    hr{ border:0; height:1px; background:rgba(255,255,255,0.03); margin:20px 0 }
+    .muted{ color:var(--muted) }
+    .shadow{ box-shadow: 0 20px 50px rgba(0,0,0,0.6) }
+    .center{ text-align:center }
+
+    /* utility */
+    .flex{ display:flex; gap:12px; align-items:center }
+    .pill{ padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.02); color:var(--muted); font-weight:700 }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">T</div>
+        <div>
+          <div style="font-weight:700">Transform Trading</div>
+          <div style="font-size:12px;color:var(--muted)">Advisory & Courses</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#courses">Courses</a>
+        <a href="#mentors">Mentors</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="cta-small" onclick="openBooking()">Book Free Consult</button>
+        <button class="cta-small" onclick="scrollToId('contact')">Get in touch</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <div class="badge" style="margin-bottom:12px; display:inline-block; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.03); color:var(--muted); font-weight:700">FREE 7-DAY TRIAL</div>
+        <h1>Transform Your Trading Journey</h1>
+        <p>Expert Stock Market Guidance, Real-time calls, Courses & mentorship to help you trade with a plan — not luck.</p>
+
+        <div class="btn-row" style="margin-top:18px">
+          <button class="btn btn-primary" onclick="openBooking()">Book Free Consultation</button>
+          <button class="btn btn-outline" onclick="scrollToId('courses')">Explore Courses</button>
+        </div>
+
+        <div class="stats" aria-hidden="true" style="margin-top:18px">
+          <div class="stat"><small>Traders</small><strong>10,000+</strong></div>
+          <div class="stat"><small>Experience</small><strong>8+ years</strong></div>
+          <div class="stat"><small>Accuracy</small><strong>85%</strong></div>
+        </div>
+      </div>
+
+      <aside class="hero-illustr">
+        <!-- use your image here -->
+        <img src="https://plus.unsplash.com/premium_photo-1682310075673-b408eb1ca6fd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dHJhZGluZ3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000" alt="Trading office illustration">
+      </aside>
+    </section>
+
+    <!-- Services / Advisory -->
+    <section id="services" class="section">
+      <h2 class="heading">What we offer</h2>
+      <div class="grid-3">
+        <div class="advisory-card">
+          <div class="icon">I</div>
+          <div>
+            <h4>Intraday Calls</h4>
+            <p>High-probability intraday trade calls with entry, stop loss and target. Delivered via WhatsApp & Telegram in real time.</p>
+          </div>
+        </div>
+
+        <div class="advisory-card">
+          <div class="icon">S</div>
+          <div>
+            <h4>Swing Ideas</h4>
+            <p>Short-term swing trades with risk-defined setups and follow-up journaling for performance tracking.</p>
+          </div>
+        </div>
+
+        <div class="advisory-card">
+          <div class="icon">P</div>
+          <div>
+            <h4>Positional / Investment</h4>
+            <p>Longer-term positional recommendations and fundamental picks for wealth creation and portfolio building.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentors & Testimonials -->
+    <section id="mentors" class="section">
+      <h2 class="heading">Mentors & Success Stories</h2>
+
+      <div class="mentors" role="list">
+        <div class="mentor" role="listitem">
+          <div class="avatar">AS</div>
+          <div>
+            <div style="font-weight:700">Aman Sharma</div>
+            <small>Lead Strategist • 9 yrs experience</small>
+            <div style="color:var(--muted); margin-top:8px; font-size:13px">Specialist in intraday setups & risk-first sizing.</div>
+          </div>
+        </div>
+
+        <div class="mentor" role="listitem">
+          <div class="avatar">RK</div>
+          <div>
+            <div style="font-weight:700">Riya Kapoor</div>
+            <small>Technical Coach</small>
+            <div style="color:var(--muted); margin-top:8px; font-size:13px">Candlestick & momentum expert, teaches advanced charting.</div>
+          </div>
+        </div>
+
+        <div class="mentor" role="listitem">
+          <div class="avatar">SB</div>
+          <div>
+            <div style="font-weight:700">Sahil B.</div>
+            <small>Fundamental Analyst</small>
+            <div style="color:var(--muted); margin-top:8px; font-size:13px">Focuses on value picks & portfolio construction.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <!-- Testimonials Carousel -->
+      <div class="carousel" aria-label="Testimonials">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testi">
+            <p>"I turned my losing months into consistent winners—journal + rules changed everything."</p>
+            <div style="font-weight:700">— Priya</div>
+            <div class="muted" style="font-size:13px">Retail trader</div>
+          </div>
+
+          <div class="testi">
+            <p>"The intraday calls are crisp: entry, stop, target — straightforward and actionable."</p>
+            <div style="font-weight:700">— Aman</div>
+            <div class="muted" style="font-size:13px">Swing trader</div>
+          </div>
+
+          <div class="testi">
+            <p>"Mentorship helped me build a plan and stick to it. The results followed."</p>
+            <div style="font-weight:700">— Noor</div>
+            <div class="muted" style="font-size:13px">Investor</div>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="pill" id="prevBtn" aria-label="Previous testimonial">◀</button>
+          <button class="pill" id="nextBtn" aria-label="Next testimonial">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video + Limited Offer -->
+    <section class="section purple" style="margin-top:26px;">
+      <div class="split">
+        <div>
+          <h2 class="heading">Real-Time Market Analysis & Daily Trading Tips</h2>
+          <p class="muted">Receive expert analysis delivered straight to your mobile through WhatsApp, Telegram, and SMS. Our research team monitors NSE and BSE continuously for high-probability setups.</p>
+
+          <ol style="margin-top:16px; color:var(--muted);">
+            <li style="margin:12px 0"><strong>Pre-Market Analysis</strong> — Daily market outlook before 9:15 AM.</li>
+            <li style="margin:12px 0"><strong>Intraday Calls</strong> — Precise entry, target & stop-loss.</li>
+            <li style="margin:12px 0"><strong>Swing Ideas</strong> — 1–3 day setups for higher swing returns.</li>
+          </ol>
+        </div>
+
+        <aside style="display:flex; flex-direction:column; gap:12px;">
+          <!-- Embedded video (replace src with your YouTube link) -->
+          <div style="background:var(--panel); padding:10px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)">
+            <iframe width="100%" height="240" src="https://www.youtube.com/embed/5qap5aO4i9A" title="Intro video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:10px"></iframe>
+          </div>
+
+          <div class="form" style="padding:12px">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-weight:700">Limited Time Offer</div>
+              <div class="pill">7 days free</div>
+            </div>
+            <div class="muted" style="margin-top:8px">Get 7 days free trial access to premium calls & live sessions. Cancel anytime.</div>
+            <div style="margin-top:10px"><button class="btn btn-primary" onclick="openBooking()">Start Free Trial</button></div>
+          </div>
+        </aside>
+      </div>
+
+    </section>
+
+    <!-- Courses / Pricing -->
+    <section id="courses" class="section">
+      <h2 class="heading center">Comprehensive Stock Market Learning Courses</h2>
+      <p class="muted center" style="max-width:900px; margin:8px auto 20px auto">From beginners to advanced traders — master every aspect of market trading with video lessons, live trading, assignments, and lifetime access to materials.</p>
+
+      <div class="pricing-grid">
+        <div class="plan">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <div>
+              <div style="font-weight:800; font-size:18px">Foundation Course</div>
+              <div class="muted" style="font-size:13px">4 weeks • Beginner</div>
+            </div>
+            <div style="font-weight:800; font-size:20px">₹499</div>
+          </div>
+          <hr>
+          <ul class="muted">
+            <li>Market fundamentals</li>
+            <li>How to open Demat & place trades</li>
+            <li>Weekly live Q&A</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-outline" onclick="scrollToId('contact')">Enroll</button></div>
+        </div>
+
+        <div class="plan shadow">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <div>
+              <div style="font-weight:800; font-size:18px">Technical Analysis</div>
+              <div class="muted" style="font-size:13px">6 weeks • Intermediate</div>
+            </div>
+            <div style="font-weight:800; font-size:20px">₹1,499</div>
+          </div>
+          <hr>
+          <ul class="muted">
+            <li>Candlesticks & indicators</li>
+            <li>Price action & patterns</li>
+            <li>Practice assignments</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-primary" onclick="openBooking()">Enroll</button></div>
+        </div>
+
+        <div class="plan">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <div>
+              <div style="font-weight:800; font-size:18px">Options & Derivatives</div>
+              <div class="muted" style="font-size:13px">8 weeks • Advanced</div>
+            </div>
+            <div style="font-weight:800; font-size:20px">₹3,999</div>
+          </div>
+          <hr>
+          <ul class="muted">
+            <li>F&O strategies</li>
+            <li>Hedging & risk management</li>
+            <li>Advanced trading demos</li>
+          </ul>
+          <div style="margin-top:12px"><button class="btn btn-outline" onclick="openBooking()">Enroll</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <!-- Contact / Booking Section -->
+<section id="contact" class="section bg-dark text-light" style="padding:80px 0;">
+  <div class="container" style="max-width:900px;margin:auto;text-align:center;">
+    <h2 class="heading" style="font-size:2.5em;margin-bottom:20px;color:#ffcc00;">
+      Get in Touch / Book Your Consultation
+    </h2>
+    <p style="font-size:1.1em;color:#ddd;margin-bottom:40px;">
+      Fill out the quick form below to connect with us. We’ll get back to you shortly.
+    </p>
+    <div style="display:flex;justify-content:center;">
+      <iframe 
+        src="https://forms.gle/prnajUJjGuufzCwY7" 
+        width="640" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="border-radius:12px;box-shadow:0 0 20px rgba(255,255,255,0.1);">
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+      <div>
+        <div style="font-weight:800">Transform Trading</div>
+        <div class="muted" style="font-size:13px">Trusted stock market education & advisory</div>
+      </div>
+
+      <div class="socials">
+        <a href="#" aria-label="Telegram" title="Telegram" style="color:var(--muted); text-decoration:none">
+          <!-- telegram svg -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12l18-7-7 18-3-8-8-3z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" title="YouTube" style="color:var(--muted); text-decoration:none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 7.2s-.2-1.6-1-2.3c-.9-.9-1.9-.9-2.4-1C15.9 3.6 12 3.6 12 3.6s-3.9 0-6.5.3c-.5.1-1.5.1-2.4 1C2.2 5.6 2 7.2 2 7.2S1.8 9 1.8 10.9v2.2C1.8 16 2 17.8 2 17.8s.2 1.6 1 2.3c.9.9 2.1.9 2.7 1 2.1.3 9.5.3 9.5.3s3.9 0 6.5-.3c.5-.1 1.5-.1 2.4-1 .8-.7 1-2.3 1-2.3s.2-1.8.2-3.7v-2.2C22.2 9 22 7.2 22 7.2z" stroke="currentColor" stroke-width="0.7"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" title="Instagram" style="color:var(--muted); text-decoration:none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="0.9"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="0.9"/></svg>
+        </a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:12px; color:var(--muted); font-size:13px">© <span id="year"></span> Transform Trading — All rights reserved</div>
+  </footer>
+
+  <!-- Booking Modal (hidden) -->
+  <div id="bookingModal" role="dialog" aria-hidden="true" style="position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:60;">
+    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.6)" onclick="closeBooking()"></div>
+    <div style="background:var(--panel); border-radius:12px; padding:20px; width:520px; max-width:94%; z-index:61; border:1px solid rgba(255,255,255,0.03)">
+      <div style="display:flex; justify-content:space-between; align-items:center">
+        <div style="font-weight:800">Book Free Consultation</div>
+        <button style="background:transparent;border:0;color:var(--muted);font-size:18px" onclick="closeBooking()">✕</button>
+      </div>
+      <p class="muted" style="margin-top:8px">Choose a convenient slot and we'll confirm via email/WhatsApp.</p>
+
+      <form id="bookingForm" onsubmit="submitBooking(event)" style="margin-top:12px">
+        <label for="bname">Name</label>
+        <input id="bname" required>
+        <label for="bphone">Phone</label>
+        <input id="bphone" required>
+        <label for="bemail">Email</label>
+        <input id="bemail" type="email" required>
+
+        <div style="display:flex; gap:8px; margin-top:8px">
+          <input id="bdate" type="date" required style="flex:1">
+          <select id="btime" required style="flex:1">
+            <option value="">Select slot</option>
+            <option>10:00 AM</option>
+            <option>11:30 AM</option>
+            <option>2:00 PM</option>
+            <option>4:00 PM</option>
+          </select>
+        </div>
+
+        <div style="display:flex; gap:8px; margin-top:12px; justify-content:flex-end">
+          <button type="button" class="btn btn-outline" onclick="closeBooking()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // smooth scroll helper
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // Booking modal
+    function openBooking(){
+      const modal = document.getElementById('bookingModal');
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeBooking(){
+      const modal = document.getElementById('bookingModal');
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    function submitBooking(e){
+      e.preventDefault();
+      const name = document.getElementById('bname').value.trim();
+      const phone = document.getElementById('bphone').value.trim();
+      const email = document.getElementById('bemail').value.trim();
+      const date = document.getElementById('bdate').value;
+      const time = document.getElementById('btime').value;
+
+      if(!name || !phone || !email || !date || !time){
+        alert('Please complete all booking fields.');
+        return;
+      }
+
+      // simulate booking success
+      alert('Thanks '+name+ '! Your booking for '+date+' at '+time+' is requested. We will confirm via email/whatsapp.');
+      closeBooking();
+      document.getElementById('bookingForm').reset();
+    }
+
+    // Contact form
+    function submitContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if(!name || !email || !phone){ alert('Please fill name, email and phone.'); return; }
+      // simulate send
+      alert('Thanks '+name+'! We received your message — we will reply soon.');
+      e.target.reset();
+    }
+
+    // Simple carousel logic
+    (function(){
+      const track = document.getElementById('carouselTrack');
+      const prev = document.getElementById('prevBtn');
+      const next = document.getElementById('nextBtn');
+      let index = 0;
+
+      function update(){
+        const itemWidth = track.children[0].getBoundingClientRect().width + 12;
+        track.style.transform = `translateX(${-index * itemWidth}px)`;
+      }
+      next.addEventListener('click', ()=> {
+        index = Math.min(index + 1, track.children.length - 1);
+        update();
+      });
+      prev.addEventListener('click', ()=> {
+        index = Math.max(index - 1, 0);
+        update();
+      });
+
+      // autoplay
+      let autoplay = setInterval(()=> {
+        index = (index + 1) % track.children.length;
+        update();
+      }, 4500);
+      // pause on hover
+      track.parentElement.addEventListener('mouseenter', ()=> clearInterval(autoplay));
+      track.parentElement.addEventListener('mouseleave', ()=> {
+        autoplay = setInterval(()=> { index = (index + 1) % track.children.length; update(); }, 4500);
+      });
+
+      // responsive recalculation
+      window.addEventListener('resize', update);
+      setTimeout(update,100);
+    })();
+  </script>
+
+</body>
+</html>
